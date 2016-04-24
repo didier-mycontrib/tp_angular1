@@ -1,0 +1,28 @@
+        <h2> {{publicSpace.welcomeMessage}} </h2>
+		<a href="#/login"> login (as admin) for admin_space (exchange-rate updating , access private data)</a> <br/>
+		<a href="#/adminSpace/unknowned_user"> direct access to admin_space (deferred login redirect by $httpProvider.interceptors when 401/403 ) </a>
+		<hr/>
+		<div id="divPublic">
+		<h3> conversion de devises (partie publique de l'application) </h3>
+		
+		monnaie source (à convertir) : <select ng-model="publicSpace.srcId"> 
+	     <option ng-repeat="(id,devise) in publicSpace.deviseMap" value="{{id}}"> {{devise.code}} ({{devise.name}}) </option>
+	  </select> 
+	  monnaie cible  : <select ng-model="publicSpace.targetId"> 
+	     <option ng-repeat="(id,devise) in publicSpace.deviseMap" value="{{id}}"> {{devise.code}} ({{devise.name}}) </option>
+	  </select> <br/>
+	  montant à convertir: <input ng-model="publicSpace.montant" />  <input type='button' value="convertir" ng-click="publicSpace.convertViaRest()"/> <br/>
+		résultat de la conversion: {{publicSpace.resConv}}
+		<hr/> 
+		  <span> {{publicSpace.msg}}</span> 
+		<hr/>
+	   	 <table border="1">
+		    <tr> <th> monnaie </th> <th> change vis à vis du dollar </th> </tr>
+			<tr ng-repeat="(id,devise) in publicSpace.deviseMap" > <td>{{devise.code}} ({{devise.name}}) </td> <td> {{devise.exchange_rate}} </td> </tr>
+         </table>		 
+       </div>
+
+		
+       
+        
+        

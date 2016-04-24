@@ -1,0 +1,41 @@
+/* comment in css
+   rappels des selecteurs:
+  balise { ... }
+  #id { ...}
+  .classXY { ....}
+  sel1 , sel2 , sel3 { ...}
+  balise#idPrecis { ...} 
+  balise sousBalise {  ... pour sous balise si englobee par balise } 
+*/
+#mainHeader, #mainSideMenu, #mainContent, #mainFooter { padding:1px 0;}
+
+#mainHeader  {  background-color:#FF9900; text-align:center;  }
+#mainNav     {  background-color : #cccccc;  }
+
+#mainSideMenu { float:left; width:240px; background-color:#FF3366;  overflow:auto; }
+/* margin-left de #mainContent doit etre un peu plus grand que width de #mainSideMenu flottant  */
+#mainContent { margin-left:245px; background-color:#9966FF; }
+
+
+/* version simple sans "sideMenu" */
+#simpleMainContent {  margin:1px; border-style:solid; padding:3px; background-color:rgb(250,250,120); color:rgb(0,0,180); }
+
+
+/* clear:both; essentiel pour que #mainFooter soit toujour en dessous du element flottant #mainSideMenu 
+   et jamais sur la meme ligne */
+#mainFooter  { margin-top:2px; padding:3px; background-color:rgb(220,220,220); text-align:center; clear:both;  }
+
+article { margin:5px; background-color : #00cc00; }
+section { margin:5px; background-color : yellow; }
+
+output {  font-weight:bold; }
+
+
+label { display: block;  float: left; width: 120px;  margin-right: 10px;  text-align: left;}
+
+/* ou bien
+label { display: inline-block; vertical-align: top; width: 120px;  margin-right: 10px;  text-align: right;	}
+*/
+
+#divPublic {   background-color:rgb(120,250,120);  }
+#divAdmin {   background-color:rgb(250,120,120);  }

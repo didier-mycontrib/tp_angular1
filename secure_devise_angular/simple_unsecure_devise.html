@@ -1,0 +1,36 @@
+        <html ng-app="deviseApp">
+        <head>
+        <script src="lib/angular/angular.min.js" ></script>
+        <script src="js/simpleUnsecureCtrls.js"  ></script>
+		<!-- <link rel="stylesheet" type="text/css" href="css/layout.css"/> -->
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+		<style type="text/css">
+			
+		</style>
+        </head>
+        <body ng-controller="simpleUnsecureCtrl">
+		<h1> conversion de devises (version élémentaire sans sécurité ni navigation) </h1>
+		
+		monnaie source (à convertir) : <select ng-model="srcId"> 
+	     <option ng-repeat="(id,devise) in deviseMap" value="{{id}}"> {{devise.code}} ({{devise.name}}) </option>
+	  </select> 
+	  monnaie cible  : <select ng-model="targetId"> 
+	     <option ng-repeat="(id,devise) in deviseMap" value="{{id}}"> {{devise.code}} ({{devise.name}}) </option>
+	  </select> <br/>
+	  montant à convertir: <input ng-model="montant">  <input type='button' value="convertir" ng-click="convertViaRest()"/> <br/>
+		résultat de la conversion: {{resConv}}
+		
+		<hr/>
+	  devise (to update) : <select ng-model="deviseIdSelected"> 
+	     <option ng-repeat="(id,devise) in deviseMap" value="{{id}}"> {{devise.code}} ({{devise.name}}) </option>
+	  </select> <br/>
+	  _id: <span>{{deviseMap[deviseIdSelected]._id}}</span> <br/>
+	  code : <input ng-model="deviseMap[deviseIdSelected].code"  /><br/>
+	  name : <input ng-model="deviseMap[deviseIdSelected].name" /><br/>
+	  exchange_rate : <input ng-model="deviseMap[deviseIdSelected].exchange_rate"  /><br/>
+	  <input type='button' value="update devise" ng-click="updateDeviseViaRest()"/> <br/>
+	  <hr/>
+	  <span> {{msg}}</span> <br/>
+		
+        </body>
+        </html>

@@ -1,0 +1,17 @@
+        <div >
+        <h3> {{login.title}} </h3> 
+		   <select ng-model="login.signType">
+		       <option value="auth" selected> authentification (login/signOn) </option>
+			   <option value="signin" > new account (signIn) </option>
+		   </select> <br/>
+		   username:<input type="text" ng-model="login.username"/> <i>(ex: user3)</i> <br/>
+		   email:<input type="text" ng-model="login.email"  ng-show="login.signType == 'signin' "/>  <br/>
+		   password:<input type="text" ng-model="login.password"/> <i>(ex: pwd3)</i><br/>
+		   <input type='button' value='login' ng-click="login.postLoginInfosViaRest()" ng-show="login.signType == 'auth' "/> 
+		   <input type='button' value='save new account' ng-click="login.postSignInInfosViaRest()" ng-show="login.signType == 'signin' "/> <br/><br/>
+		   {{login.msg}} <br/>
+		   <hr/>
+           <a href="#/adminSpace/{{login.username}}" 
+		     ng-show="login.verifPassword()" > vers espace administrateur authentifie </a> <br/>
+		 </div>  
+        

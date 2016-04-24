@@ -1,0 +1,21 @@
+        <div id="divAdmin">
+        <h3>  espace admin authentifie : {{adminSpace.username}}</h3> 
+		currentUserFromToken  : {{adminSpace.currentUserFromToken}} <br/>
+         <input type='button' value="logout" ng-click="adminSpace.logoutCurrentUser()"/> <br/>
+		<hr/>
+		
+		devise (to update) : <select ng-model="adminSpace.deviseIdSelected"> 
+	     <option ng-repeat="(id,devise) in adminSpace.deviseMap" value="{{id}}"> {{devise.code}} ({{devise.name}}) </option>
+	  </select> <br/>
+	  _id: <span>{{adminSpace.deviseMap[deviseIdSelected]._id}}</span> <br/>
+	  code : <input ng-model="adminSpace.deviseMap[adminSpace.deviseIdSelected].code"  /><br/>
+	  name : <input ng-model="adminSpace.deviseMap[adminSpace.deviseIdSelected].name" /><br/>
+	  exchange_rate : <input ng-model="adminSpace.deviseMap[adminSpace.deviseIdSelected].exchange_rate"  /><br/>
+	  <input type='button' value="update devise" ng-click="adminSpace.updateDeviseViaRest()"/> <br/>
+	  <hr/>
+	  <input type='button' value="simple_private_data access" ng-click="adminSpace.accessPrivateDataViaRest()"/> <br/>
+	  <hr/>
+	  <span> {{adminSpace.msg}}</span> <br/>
+		
+        </div>
+        
