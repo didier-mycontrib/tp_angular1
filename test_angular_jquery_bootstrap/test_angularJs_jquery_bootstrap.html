@@ -1,0 +1,97 @@
+        <html ng-app="myApp">
+        <head>
+		<link rel="stylesheet" href="./css/bootstrap.min.css">
+		<link rel="stylesheet" href="./css/jquery-ui.css"  />
+	    <link rel="stylesheet" href="./css/styles.css">
+		
+		<!-- angular js 1.x uses jquery lite by default if full jquery is not specified here -->
+		
+		<script src="lib/jquery/jquery-2.2.1.min.js"></script> <!-- bootstrap dynamic data-toggle works with full jquery but not with jquery lite -->
+		<script src="lib/jquery/jquery-ui.min.js"></script>
+		<script src="lib/bootstrap/bootstrap.min.js"></script>
+		
+        <script src="lib/angular/angular.min.js" ></script>
+		
+        <script src="js/mainCtrls.js"  ></script>
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+		<style type="text/css">
+		/* comment in css, rappels des principaux selecteurs:
+			balise { ... }
+			#id { ...}
+			.classXY { ....}
+		*/		
+		   .my-dialog-content { display: none;}
+		</style>
+        </head>
+        <body ng-controller="MainCtrl">
+		
+		<div class="container"> <!-- avec "container-fluid" : occupe toute la largeur 
+                                      sans marge , et améliore gestion grille -->   
+		
+			<div class="row c1">
+			   <div class="col-sm-12"> <h2> {{title}} </h2> </div>
+			</div>	
+		 
+			<div class="row c3">
+			   <div class="col-sm-6 c2">
+				   ht : <input ng-model="ht" /> <br/>
+				  taux : <!-- <input ng-model="taux" /> -->
+				  <select ng-model="taux">
+				   <option ng-repeat="t in listeTaux" value="{{t.valeur}}"  > {{t.nom}} </option>
+				  </select> ({{taux}} % )
+			   </div>
+			   <div class="col-sm-6">
+			   tva: {{ht* taux/100}} <br/>
+			<!-- ttc (via basic expression): {{ht* (1 + taux/100)}} <br/> -->
+			ttc <!-- (via function call in expression) -->: {{calcul_ttc()}} 
+			   
+			   </div>
+			</div>	
+			
+			<hr/>
+			
+			<ul class="nav nav-pills">
+			   <li class="active"><a href="#id_tab1" data-toggle="tab">calculatrice</a></li>
+			   <li><a href="#id_tab2" data-toggle="tab">convertisseur</a></li>
+			   <li><a href="#id_tab3" data-toggle="tab">divers</a></li>
+			</ul>	
+
+			<div class="tab-content">
+			   <div id="id_tab1" class="tab-pane fade in active">
+			      <br/>
+				  <input ng-model="x" /> + <input ng-model="y" />  = {{x*1.0+y*1.0}} <br/>
+			   </div>
+			   <div id="id_tab2" class="tab-pane fade">
+				  <br/>
+				  montant en euro(s) : <input ng-model="sEuro" /> <br/>
+				  équivalent en franc(s) : {{sEuro * 6.55957}} <br/>
+			   </div>
+			   <div id="id_tab3" class="tab-pane fade">
+				  <br/>contenu de l'onglet "divers" <br/>
+				  myDate = {{myDate}}
+			   </div>
+			</div>	
+			
+			<hr/>
+			Date: <input type="text" id="datepicker1"  ng-model="myDate" /> <br/>
+			<div style="color:{{txtColor}};">
+			un deux trois nous irons au bois <br/>
+			quatre cinq six cueillir des cerises <br/>
+			couleur du texte = {{txtColor}}
+			</div>
+			
+			<input type='button' ng-click="open_myDialog()" value="open myDialog to choose text color" /> <br/>
+			
+			  <div class="my-dialog-content" id="myDialog" title="Simple Dialog">
+				  Cette boîte de dialogue peut être redimensionnée, déplacée et fermée.
+				  <hr/>
+				  backColor : <select ng-model="tempTxtColor">
+						   <option  ng-repeat="c in listeChoixCouleur" value="{{c.valeur}}"
+						            ng-selected="c.valeur == tempTxtColor"> {{c.nom}} </option>
+				  </select>
+				  Voulez vous cette couleur de texte ?
+			  </div>
+        			
+        </body>
+        </html>

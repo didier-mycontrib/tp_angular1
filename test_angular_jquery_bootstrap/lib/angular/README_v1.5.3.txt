@@ -1,0 +1,1 @@
+version 1.5.3 de AngularJs (fin 2015 , debut 2016)
