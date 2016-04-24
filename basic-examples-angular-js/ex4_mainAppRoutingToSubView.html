@@ -1,0 +1,29 @@
+        <html ng-app="myAjsApp">
+        <head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <script src="lib/angular/angular.js"></script>
+        <script src="lib/angular/angular-route.js"></script>
+        <script src="js/mainApp_v4_with_route.js"></script>
+        <script src="js/mainCtrls_for_v4_with_route.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/layout.css"/>
+        </head>
+        <body>
+		    <!-- header , aside , section, footer since html5 , div with html4 -->
+			<header id="mainHeader" role="banner">
+				<h4> (header) entete de page (logo, ...)</h4>
+			</header>
+			<div id="mainArea">
+				<aside id="mainSideMenu">
+					<h4> (aside) sidePanel </h4>
+					<p> .... </p>
+					<a href="#/products">listeProd</a>
+					<p> .... </p>
+				</aside>
+				<section id="mainContent" ng-view >				
+				</section>
+			</div>
+			<footer id="mainFooter" >
+				<h4>(footer) pied de page (liens, mentions legales)</h4>
+			</footer>
+        </body>
+        </html>

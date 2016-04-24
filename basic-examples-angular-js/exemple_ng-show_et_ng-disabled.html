@@ -1,0 +1,47 @@
+        <html ng-app="" >
+        <head>
+        <script src="lib/angular/angular.js"></script>
+		<!-- <link rel="stylesheet" type="text/css" href="css/layout.css"/> -->
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+		<style type="text/css">
+		/* comment in css, rappels des principaux selecteurs:
+			balise { ... }
+			#id { ...}
+			.classXY { ....}
+		*/
+		    #choixOperation {  background-color:#FF9900; text-align:center; font-weight:bold; font-size:14pt; font-family:courier;
+						margin-bottom:5px; padding:3px;}
+		    #divMultiplication { background-color:rgb(250,150,150); padding:3px; border-color:rgb(0,0,0); border-width:2px; border-style:solid;}
+			#divDivision { background-color:rgb(150,150,250); padding:3px; border-color:rgb(0,0,0); border-width:2px; border-style:solid;}
+			
+			#divConfirmation { background-color:#669933; text-align:center; font-style:italic; font-weight:bold;
+			                    margin:3px; padding:8px;}			
+		</style>
+        </head>
+        <body ng-init="operation='multiplication'">
+		
+		 <div id="choixOperation">
+			operation:
+			<select ng-model="operation">
+			   <option>multiplication</option>
+			   <option>division</option>
+			</select>
+		  </div>
+		  
+			<div id="divMultiplication" ng-show="operation == 'multiplication'">
+			 <h4>multiplication</h4>
+			 <input type="text" ng-model="a"> * <input type="text" ng-model="b"> = {{a*b}}
+			</div>
+	
+			<div  id="divDivision" ng-show="operation == 'division'">
+			  <h4>division</h4>
+			  <input type="text" ng-model="a"> / <input type="text" ng-model="b"> = {{a/b}} 
+			  <span style="color:red" ng-show="b==0" > division par zero interdite !!! </span>
+			</div>
+			
+			<div  id="divConfirmation">
+				<input type="checkbox" ng-model="confirmation" > confirmation </input>
+				<input type="button" value="action" ng-disabled="!confirmation" onClick="alert('action confirmee')"/>
+			</div>
+        </body>
+        </html>

@@ -1,0 +1,13 @@
+        <div id="divProd">
+			<h3> {{title}} </h3> 
+			<ul>
+				<li ng-repeat="prod in products">
+					<a href="#/products/{{prod.id}}">{{prod.name}}</a>
+				</li>
+			</ul>
+        </div>
+        <div id="divStatus">
+			<hr/>
+			total number of products : <b>{{products.length}}</b> 
+        </div>
+        

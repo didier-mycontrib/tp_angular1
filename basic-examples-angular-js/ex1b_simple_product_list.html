@@ -1,0 +1,38 @@
+        <html ng-app="myAjsApp">
+        <head>
+        <script src="lib/angular/angular.js"></script>
+        <script src="js/mainCtrls_v1.js"></script>
+		<!-- <link rel="stylesheet" type="text/css" href="css/layout.css"/> -->
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+		<style type="text/css">
+		/* comment in css, rappels des principaux selecteurs:
+			balise { ... }
+			#id { ...}
+			.classXY { ....}
+		*/
+		    #divTitle {  background-color:#FF9900; text-align:center; font-weight:bold; font-size:14pt; font-family:courier;
+						margin-bottom:5px; padding:3px;}
+		    #divProd { padding:3px; border-color:rgb(0,0,0); border-width:2px; border-style:solid;}
+			li { font-weight:bold;  }
+			.prodName { color:rgb(0,0,192); }
+			.prodDetails { font-style:italic; }
+			#divStatus { background-color:#669933; text-align:center; font-style:italic; font-weight:bold;}			
+		</style>
+        </head>
+        <body ng-controller="ProductListCtrl">
+        <div id="divTitle">
+			{{title}} 
+		</div>
+		<div id="divProd">
+			<ul>
+				<li ng-repeat="prod in products">
+				<span class="prodName">{{prod.name}}</span>
+				<p class="prodDetails">{{prod.label}} , date:{{prod.date}} , price:{{prod.price}}</p>
+				</li>
+			</ul>
+        </div>
+        <div id="divStatus">
+			total number of products : <b>{{products.length}}</b> 
+        </div>
+        </body>
+        </html>

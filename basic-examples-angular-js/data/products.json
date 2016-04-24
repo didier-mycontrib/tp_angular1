@@ -1,0 +1,28 @@
+[{
+"id" : 1,
+"name": "iphone 5C",
+"label": "very good Apple smartphone ",
+"date" : "2013-10-12",
+"price" : 600.0
+},
+{
+"id" : 2,
+"name": "galaxy S4 mini",
+"label": "good Android smartphone of Samsung with medium screen",
+"date" : "2013-05-23",
+"price" : 350.50
+},
+{
+"id" : 3,
+"name": "ultym 5",
+"label": "cheap and good Android smartphone by Bougues-Telecom",
+"date" : "2014-05-23",
+"price" : 120.0
+},
+{
+"id" : 4,
+"name": "galaxy Ace",
+"label": "old good Android smartphone of Samsung",
+"date" : "2011-05-23",
+"price" : 130.0
+}]
