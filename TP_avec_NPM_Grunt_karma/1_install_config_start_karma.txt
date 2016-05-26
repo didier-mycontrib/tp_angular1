@@ -1,0 +1,55 @@
+============================= installation de KARMA via NPM ===============
+npm install -g karma
+
+Remarque importante: option -g pour installation "globale" (non spécifique au projet)
+avec stockage  des librairies téléchargées dans C:\Users\username\AppData\Roaming\npm\node_modules\
+
+pour une eventuelle installation locale:
+	npm install karma --save-dev
+		puis
+	./node_modules/.bin/karma
+
+============================= installation de karma-jasmine-html-reporter via NPM ===============
+
+REM install  karma-jasmine-html-reporter --save-dev
+npm install -g karma-jasmine-html-reporter
+
+REM  reporters: ['kjhtml'] ou reporters: ['progress','kjhtml'] in karma.conf.js
+REM  ou bien --reporters kjhtml sur la ligne de commande de lancement de karma
+
+
+============================= configuration de karma ===================
+
+1) se placer dans le répertoire racine d'un projet existant
+   avec par exemple js/*.js pour le code source
+   et test/unit/*Spec.js pour le code des tests unitaires basés par exemple sur jasmine
+2) karma init karma.conf.js
+   ==> saisir par exemple de manière interactive:
+ jasmine
+
+ no (for Require.js)
+
+ Chrome
+ Firefox
+
+ js/*.js
+ test/**/*Spec.js
+ 
+ (nothing to exclude)
+
+ 
+ yes (watch changes) 
+
+ ==> génération du fichier de configuration KARMA "karma.conf.js"
+ 
+ajuster éventuellement le fichier karma.conf.js en ajoutant le reporter 'kjhtml':
+ reporters: ['progress'] -->  reporters: ['progress','kjhtml']
+ 
+
+============================= démarrage de karma ===================
+
+karma start karma.conf.js
+
+click sur "DEBUG" fait apparaître les détails "jasmine" (karma-jasmine-html-reporter , "kjhtml")
+
+Ctrl-C pour arrêter
